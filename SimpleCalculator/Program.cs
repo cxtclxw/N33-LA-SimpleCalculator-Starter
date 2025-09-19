@@ -7,15 +7,12 @@ namespace SimpleCalculator
         static void Main(string[] args)
         {
             try
-            {
-                // Class to convert user input
-                InputConverter inputConverter = new InputConverter();
-
+            { 
                 // Class to perform actual calculations
                 CalculatorEngine calculatorEngine = new CalculatorEngine();
 
-                double firstNumber = inputConverter.ConvertInputToNumeric(Console.ReadLine());
-                double secondNumber = inputConverter.ConvertInputToNumeric(Console.ReadLine());
+                double firstNumber = InputConverter.ConvertInputToNumeric(Console.ReadLine());
+                double secondNumber = InputConverter.ConvertInputToNumeric(Console.ReadLine());
                 string operation = Console.ReadLine();
 
                 double result = calculatorEngine.Calculate(operation, firstNumber, secondNumber);
