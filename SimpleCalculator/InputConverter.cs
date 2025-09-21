@@ -1,5 +1,4 @@
 ﻿using System;
-using SimpleCalculator.Properties;
 
 namespace SimpleCalculator
 {
@@ -9,7 +8,7 @@ namespace SimpleCalculator
         {
             if (string.IsNullOrEmpty(argTextInput))
             { 
-                throw new ArgumentException(Resources.InputNullOrEmpty);
+                throw new ArgumentException("Input cannot be null or empty");
             }
 
             if (int.TryParse(argTextInput, out int result))
@@ -18,7 +17,7 @@ namespace SimpleCalculator
             }
             else
             { 
-                throw new ArgumentException(string.Format(Resources.InvalidNumberError, argTextInput)); 
+                throw new ArgumentException($"Invalid input: '{argTextInput}' is not a valid number."); 
             }
         }
     }
