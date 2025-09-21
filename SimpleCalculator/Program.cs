@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+using SimpleCalculator.Properties;
 
 namespace SimpleCalculator
 {
@@ -12,8 +13,8 @@ namespace SimpleCalculator
                 // Class to perform actual calculations
                 CalculatorEngine calculatorEngine = new CalculatorEngine();
 
-                double firstNumber = calculatorEngine.GetValidNumber("Enter the first number: ");
-                double secondNumber = calculatorEngine.GetValidNumber("Enter the second number: ");
+                double firstNumber = calculatorEngine.GetValidNumber(Resources.FirstNumber);
+                double secondNumber = calculatorEngine.GetValidNumber(Resources.SecondNumber);
                 string operation = calculatorEngine.GetValidOperation();
 
                 //Calculate, display result

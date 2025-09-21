@@ -1,4 +1,5 @@
 ﻿using System;
+using SimpleCalculator.Properties;
 
 namespace SimpleCalculator
 {
@@ -27,7 +28,7 @@ namespace SimpleCalculator
             {
                 if (argSecondNumber == 0)
                 {
-                    throw new DivideByZeroException("Cannot divide by zero!");
+                    throw new DivideByZeroException(Resources.DivideByZeroError);
                 }
                 result = argFirstNumber / argSecondNumber;
                 operationValid = true;
@@ -35,7 +36,7 @@ namespace SimpleCalculator
 
             if (!operationValid)
             {
-                throw new ArgumentException($"Invalid operation: '{argOperation}' is not supported.");
+                throw new ArgumentException(string.Format(Resources.InvalidOperationError, argOperation));
             }
 
                 return result;
@@ -54,7 +55,7 @@ namespace SimpleCalculator
                 catch (ArgumentException ex)
                 {
                     Console.WriteLine($"Error: {ex.Message}");
-                    Console.WriteLine("Please enter a valid number. (5, 10, 15, 3.14)");
+                    Console.WriteLine(Resources.InvalidNumberHelp);
                 }
             }
         }
@@ -77,9 +78,10 @@ namespace SimpleCalculator
 
         public string GetValidOperation()
         {
+            Console.Write(Resources.OperationChoice);
+
             while (true)
             {
-                Console.Write("Enter supported operations: \n+, add \n-, subtract \n*, times \n/, divided by:\n ");
                 string input = Console.ReadLine();
                 if (input != null)
                 {
@@ -90,7 +92,8 @@ namespace SimpleCalculator
                     return input;
                 }
 
-                Console.WriteLine("Invalid operation. Please enter one of the following: \n+, add \n-, subtract  \n*, times \n/, divided by.");
+                Console.WriteLine(Resources.InvalidOperationError, input);
+                Console.WriteLine(Resources.InvalidOperationHelp);
             }
         }
         private string GetOperationWord(string operation)
